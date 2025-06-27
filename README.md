@@ -1,4 +1,5 @@
-# ERD/ 
+# Define Entities and Relationships in ER Diagram
+# ERD
 
 # requirements.md
 
