@@ -40,8 +40,7 @@ Create an Entity-Relationship (ER) diagram based on the Airbnb database specific
 - A User can send and receive Messages.
 
 ## ER Diagram
-(See ERD/airbnb_erd.png or airbnb_erd.drawio)
-mv ~/Downloads/airbnb_erd.png ERD/
+![requirement md](https://github.com/user-attachments/assets/80745473-99e4-4347-ae76-2a1ddd066cf0)
 git add .
 git commit -m "Add ERD directory, requirements.md, and ER diagram"
 git push origin main
