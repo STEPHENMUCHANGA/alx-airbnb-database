@@ -3,6 +3,7 @@
 [commonly used in WHERE, JOIN, and ORDER BY clauses.xlsx](https://github.com/user-attachments/files/20975781/commonly.used.in.WHERE.JOIN.and.ORDER.BY.clauses.xlsx)
 
 ### Step 2: SQL CREATE INDEX Statements
+#### commands to create appropriate indexes for those columns and save them on database_index.sql
 -- Indexes for User table
 #### CREATE INDEX idx_user_email ON User (email);
 #### CREATE INDEX idx_user_id ON User (user_id);
