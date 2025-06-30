@@ -228,6 +228,54 @@
 - Property	location, pricepernight, property_id	Filters and joins
 - Booking	user_id, property_id, (start_date, end_date)	Joins and date range filtering
 
+#### Measure Performance Using EXPLAIN ANALYZE
+##### Before Adding Indexes:
+-- Run this BEFORE index creation
+##### EXPLAIN ANALYZE
+-SELECT 
+    - b.booking_id,
+    - b.start_date,
+    - b.end_date,
+    - u.first_name,
+    - p.name AS property_name
+- FROM 
+    - Booking b
+- JOIN 
+    - User u ON b.user_id = u.user_id
+- JOIN 
+    - Property p ON b.property_id = p.property_id
+- WHERE 
+    - b.start_date >= '2025-01-01'
+    - AND b.end_date <= '2025-06-01';
+##### Typical result before indexing:
+##### Full Table Scans (Sequential Scans)
+
+- High execution time (e.g., 200ms–400ms on large datasets)
+
+#### After Adding Indexes:
+
+-- Run again AFTER indexes are created
+##### EXPLAIN ANALYZE
+- SELECT 
+    - b.booking_id,
+    - b.start_date,
+    - b.end_date,
+    - u.first_name,
+    - p.name AS property_name
+- FROM 
+    - Booking b
+- JOIN 
+    - User u ON b.user_id = u.user_id
+- JOIN 
+    - Property p ON b.property_id = p.property_id
+- WHERE 
+    - b.start_date >= '2025-01-01'
+    - AND b.end_date <= '2025-06-01';
+##### Expected result after indexing:
+##### Index Scans instead of Sequential Scans
+
+- Execution time significantly reduced (e.g., 40ms–80ms)
+
 ## Initial Complex Query (Unoptimized)
 sql
 -- Initial Complex Query: Retrieves all bookings with user, property, and payment details
