@@ -1,5 +1,8 @@
 ### Step 1: Identify High-Usage Columns
-##### Step 2: SQL CREATE INDEX Statements
+#### These are commonly used in WHERE, JOIN, and ORDER BY clauses:
+[commonly used in WHERE, JOIN, and ORDER BY clauses.xlsx](https://github.com/user-attachments/files/20975781/commonly.used.in.WHERE.JOIN.and.ORDER.BY.clauses.xlsx)
+
+### Step 2: SQL CREATE INDEX Statements
 -- Indexes for User table
 #### CREATE INDEX idx_user_email ON User (email);
 #### CREATE INDEX idx_user_id ON User (user_id);
@@ -13,7 +16,7 @@
 #### CREATE INDEX idx_booking_user_id ON Booking (user_id);
 #### CREATE INDEX idx_booking_property_id ON Booking (property_id);
 #### CREATE INDEX idx_booking_dates ON Booking (start_date, end_date);
-### Step 3: Measuring Performance (Optional with EXPLAIN)
+## Step 3: Measuring Performance (Optional with EXPLAIN)
 
 #### EXPLAIN SELECT * FROM Booking WHERE user_id = 'uuid-value';
 #### Output might show sequential scan, meaning it's checking every row.
