@@ -25,7 +25,11 @@ sql
 - JOIN 
     - Property p ON b.property_id = p.property_id
 - LEFT JOIN 
-    - Payment pay ON b.booking_id = pay.booking_id;
+    - Payment pay ON b.booking_id = pay.booking_id
+   - WHERE 
+    - b.start_date >= '2025-01-01'
+    - AND b.end_date <= '2025-12-31'
+    - AND b.status = 'confirmed';
 
 #### EXPLAIN Analysis (Sample Output Summary)
 #### Run this in your SQL engine:
@@ -64,7 +68,11 @@ sql
 - JOIN 
     - Property p ON b.property_id = p.property_id
 - LEFT JOIN 
-    - Payment pay ON b.booking_id = pay.booking_id;
+    - Payment pay ON b.booking_id = pay.booking_id
+   - WHERE 
+    - b.start_date >= '2025-01-01'
+    - AND b.end_date <= '2025-12-31'
+    - AND b.status = 'confirmed';
 #### Optimization Notes
 - Reduced fields: Only fetch required columns.
 
@@ -74,3 +82,9 @@ sql
 #### CREATE INDEX idx_booking_property_id ON Booking(property_id);
 #### CREATE INDEX idx_payment_booking_id ON Payment(booking_id);
 ####  **Avoid SELECT ***: Prevents loading unnecessary data.
+- The following indexes exist to improve perfomance
+#### CREATE INDEX idx_booking_dates ON Booking(start_date, end_date);
+#### CREATE INDEX idx_booking_status ON Booking(status);
+#### CREATE INDEX idx_booking_user_id ON Booking(user_id);
+#### CREATE INDEX idx_booking_property_id ON Booking(property_id);
+#### CREATE INDEX idx_payment_booking_id ON Payment(booking_id);
