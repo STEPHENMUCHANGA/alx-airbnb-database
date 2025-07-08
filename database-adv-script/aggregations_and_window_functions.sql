@@ -27,7 +27,7 @@
 - SELECT 
     - property_id,
     - total_bookings,
-    - RANK() OVER (ORDER BY totookings DESC) AS booking_rank
+    - RANK() OVER (ORDER BY total_bookings DESC) AS booking_rank
 - FROM (
     - SELECT 
         - b.property_id,
