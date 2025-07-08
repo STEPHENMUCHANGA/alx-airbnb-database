@@ -34,7 +34,8 @@ SELECT
 FROM 
     Property p
 LEFT JOIN 
-    Review r ON p.property_id = r.property_id;
+    Review r ON p.property_id = r.property_id
+    ORDER BY p.property_id;
 
 ##### Explanation: All properties will be returned, and where there is no matching review, review_id, rating, and comment will be NULL.
   
@@ -52,7 +53,8 @@ SELECT
 FROM 
     User u
 FULL OUTER JOIN 
-    Booking b ON u.user_id = b.user_id;
+    Booking b ON u.user_id = b.user_id
+    ORDER BY user_id;
 
 ##### Explanation:
 
